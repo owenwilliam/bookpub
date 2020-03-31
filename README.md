@@ -1,0 +1,2 @@
+# bookpub
+The program starts with an overview of the important and useful Spring Boot starters that are included in the framework, and teaches you to create and add custom Servlet Filters, Interceptors, Converters, Formatters, and PropertyEditors to a Spring Boot web application. Next it will cover configuring custom routing rules and patterns, adding additional static asset paths, and adding and modifying servlet container connectors and other properties such as enabling SSL.
