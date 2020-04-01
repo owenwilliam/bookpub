@@ -2,12 +2,31 @@ package org.owen.bookpub;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
+/**
+ * ∆Ù∂Ø¿‡
+ * 
+ * @author OwenWilliam
+ * @date 2020/3/31
+ */
 @SpringBootApplication
-public class BookPubApplication {
+@EnableScheduling
+public class BookPubApplication
+{
 
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
+
 		SpringApplication.run(BookPubApplication.class, args);
+	}
+
+	@Bean
+	public StartupRunner schedulerRunner()
+	{
+
+		return new StartupRunner();
 	}
 
 }

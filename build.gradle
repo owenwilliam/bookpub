@@ -34,11 +34,10 @@ dependencies {
     // Use JUnit test framework
     //testImplementation 'junit:junit:4.12'
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+   // implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	runtimeOnly 'com.h2database:h2'
-	testImplementation('org.springframework.boot:spring-boot-starter-test') {
-		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-	}
+	runtime 'com.h2database:h2'
+	testCompile('org.springframework.boot:spring-boot-starter-test') 
 }
 test {
 	useJUnitPlatform()
