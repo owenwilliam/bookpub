@@ -1,4 +1,4 @@
-package org.owen.bookpub.dao;
+package org.owen.bookpub.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
