@@ -21,15 +21,22 @@ repositories {
 
    mavenCentral()
 }
-
+/* ÒÆ³ýTomcat
+configurations {
+ compile.exclude module: "spring-boot-starter-tomcat"
+}
+*/
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+	//implementation 'org.springframework.boot:spring-boot-starter-jetty' //Ìí¼ÓJetty·þÎñÆ÷
 	runtime 'com.h2database:h2'
 	testCompile('org.springframework.boot:spring-boot-starter-test') 
 }
 test {
 	useJUnitPlatform()
 }
+
+

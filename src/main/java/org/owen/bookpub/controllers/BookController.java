@@ -2,6 +2,8 @@ package org.owen.bookpub.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.owen.bookpub.entity.Book;
 import org.owen.bookpub.entity.Isbn;
 import org.owen.bookpub.entity.Reviewer;
@@ -42,5 +44,14 @@ public class BookController
 	public List<Reviewer> getReviewers(@PathVariable("isbn") Book book)
 	{
 		return book.getReviewers();
+	}
+
+	/*
+	 * 获取Session信息
+	 */
+	@RequestMapping(value = "/session", method = RequestMethod.GET)
+	public String getSessionId(HttpServletRequest request)
+	{
+		return request.getSession().getId();
 	}
 }
