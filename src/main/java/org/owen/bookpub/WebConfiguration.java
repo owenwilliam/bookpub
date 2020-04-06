@@ -285,7 +285,7 @@ public class WebConfiguration extends WebMvcConfigurerAdapter
 		return tomcat;
 	}*/
 
-	// springboot2 写法 TTPS处理写法
+	// springboot2 写法 HTTPS处理写法
 	@Bean
 	public TomcatServletWebServerFactory servletContainer(TomcatSslConnectorProperties properties)
 	{
@@ -295,7 +295,7 @@ public class WebConfiguration extends WebMvcConfigurerAdapter
 	}
 
 	/*
-	 * TTPS处理写法
+	 * HTTPS处理写法
 	 */
 	private Connector createSslConnector(TomcatSslConnectorProperties properties)
 	{
