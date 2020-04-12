@@ -3,8 +3,8 @@ package org.owen.bookpubstarter.dbcount;
 import org.springframework.context.annotation.Import;
 
 /**
- * ×Ô¶¨Òå±êÇ©ÓÃÓÚÖ÷ÏîÄ¿ÖĞµÄÒıÓÃ£¬Õâ¸ö±êÇ©µÄÊ¹ÓÃÀàËÆÓÚspring.factoriesÎÄ¼şÖĞ¶¨ÒåµÄ¹¦ÄÜ
- * ²»¹ı£¬Ê¹ÓÃ¸Ã±êÇ©£¬ĞèÒª½«sping.factoriesÖĞµÄÅäÖÃĞÅÏ¢×¢ÊÍµô
+ è‡ªå®šä¹‰æ ‡ç­¾ç”¨äºä¸»é¡¹ç›®ä¸­çš„å¼•ç”¨ï¼Œè¿™ä¸ªæ ‡ç­¾çš„ä½¿ç”¨ç±»ä¼¼äºspring.factoriesæ–‡ä»¶ä¸­å®šä¹‰çš„åŠŸèƒ½
+ * ä¸è¿‡ï¼Œä½¿ç”¨è¯¥æ ‡ç­¾ï¼Œéœ€è¦å°†sping.factoriesä¸­çš„é…ç½®ä¿¡æ¯æ³¨é‡Šæ‰
  * @author OwenWilliam
  * @date 2020/04/06
  *

@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.repository.CrudRepository;
 
 /**
- * ×Ô¶¨ÒåµÄstarterµÄÓ¦ÓÃÆô¶¯Ê×Àà
+ * è‡ªå®šä¹‰çš„starterçš„åº”ç”¨å¯åŠ¨é¦–ç±» 
  * @author OwenWilliam
  * @date 2020/04/06
  *

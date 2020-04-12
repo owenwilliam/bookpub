@@ -7,13 +7,23 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 /**
- * Author����
+ * Author对象
+ * 结果返回对象转换Json时会出现死循环： Infinite recursion (StackOverflowError)问题处理两种方法：
+ * 1.项目中ManyToOne 需要加上@JsonBackReference 
+ * 		ManyToMany或OneToMany 需要加上@JsonManagedReference
+ * 2.在类上方直接加入：@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class,property="id", scope=Author.class)
+ * 
  * 
  * @author OwenWilliam
  * @date 2020/3/31
  */
 @Entity
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class,property="id", scope=Author.class)
 public class Author
 {
 	@Id
@@ -21,6 +31,7 @@ public class Author
 	private Long id;
 	private String firstName;
 	private String lastName;
+	//@JsonManagedReference
 	@OneToMany(mappedBy = "author")
 	private List<Book> books;
 
@@ -30,6 +41,8 @@ public class Author
 
 	public Author(String firstName, String lastName)
 	{
+		this.firstName = firstName;
+		this.lastName = lastName;
 	}
 
 	public Long getId()

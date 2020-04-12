@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
- * Reviewer¶ÔÏó
+ * Reviewerå¯¹è±¡
  * 
  * @author OwenWilliam
  * @date 2020/3/31
@@ -26,7 +26,8 @@ public class Reviewer
 
 	public Reviewer(String firstName, String lastName)
 	{
-
+       this.firstName = firstName;
+       this.lastName = lastName;
 	}
 
 	public Long getId()

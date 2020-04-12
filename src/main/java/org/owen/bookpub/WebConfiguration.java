@@ -28,7 +28,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 
 /**
- * WebµÄÅäÖÃ°²È«¹ıÂË ÏîÄ¿Æô¶¯ºó£¬Spring Boot»á×Ô¶¯¼ÓÔØÕâ¸öÀà£¬ÒòÎªÕâ¸öÀà¼ÓÁË@Configuration, ²¢½«µÄ@BeanµÄ·½·¨¼ÓÈëbeanÖĞ
+ *  Webçš„é…ç½®å®‰å…¨è¿‡æ»¤ é¡¹ç›®å¯åŠ¨åï¼ŒSpring Bootä¼šè‡ªåŠ¨åŠ è½½è¿™ä¸ªç±»ï¼Œå› ä¸ºè¿™ä¸ªç±»åŠ äº†@Configuration, å¹¶å°†çš„@Beançš„æ–¹æ³•åŠ å…¥beanä¸­
  * 
  * @author OwenWilliam
  * @date 2020/04/02
@@ -42,7 +42,7 @@ public class WebConfiguration extends WebMvcConfigurerAdapter
 	private BookRepository bookRepository;
 
 	/*
-	 * ½«remoteIpFilter¼ÓÈëµ½SpringµÄ¹ıÂËÆ÷ÖĞ¡£SpringÆô¶¯»áÃèÊö²¢×Ô¶¯×°Åä ÒÆ³ıµôTomcatÖ®ºó»á±¨´í
+	 * å°†remoteIpFilteråŠ å…¥åˆ°Springçš„è¿‡æ»¤å™¨ä¸­ã€‚Springå¯åŠ¨ä¼šæè¿°å¹¶è‡ªåŠ¨è£…é… ç§»é™¤æ‰Tomcatä¹‹åä¼šæŠ¥é”™
 	 */
 	@Bean
 	public RemoteIpFilter remoteIpFilter()
@@ -52,7 +52,7 @@ public class WebConfiguration extends WebMvcConfigurerAdapter
 	}
 
 	/*
-	 * ·ÃÎÊµØÖ·À¹½ØÆ÷
+	 * è®¿é—®åœ°å€æ‹¦æˆªå™¨
 	 */
 	@Bean
 	public LocaleChangeInterceptor localeChangeInterceptor()
@@ -61,7 +61,7 @@ public class WebConfiguration extends WebMvcConfigurerAdapter
 	}
 
 	/*
-	 * ĞèÒªÖØĞ´´Ë·½·¨£¬²ÅÄÜÈ«localeChangeInterceptor·½·¨ÉúĞ§
+	 *  éœ€è¦é‡å†™æ­¤æ–¹æ³•ï¼Œæ‰èƒ½å…¨localeChangeInterceptoræ–¹æ³•ç”Ÿæ•ˆ
 	 */
 	@Override
 	public void addInterceptors(InterceptorRegistry registry)
@@ -70,7 +70,7 @@ public class WebConfiguration extends WebMvcConfigurerAdapter
 	}
 
 	/*
-	 * ×Ö½Ú×ª»»Æ÷£¬½«¶ÔÏó×ª»»ÎªHTTPÇëÇóµÄJson»òÆäËü¸ñÊ½
+	 * å­—èŠ‚è½¬æ¢å™¨ï¼Œå°†å¯¹è±¡è½¬æ¢ä¸ºHTTPè¯·æ±‚çš„Jsonæˆ–å…¶å®ƒæ ¼å¼
 	 */
 	@Bean
 	public ByteArrayHttpMessageConverter byteArrayHttpMessageConverter()
@@ -79,9 +79,9 @@ public class WebConfiguration extends WebMvcConfigurerAdapter
 	}
 
 	/*
-	 * ×Ö½Ú×ª»»Æ÷£¬½«¶ÔÏó×ª»»ÎªHTTPÇëÇóµÄJson»òÆäËü¸ñÊ½
+	  *å­—èŠ‚è½¬æ¢å™¨ï¼Œå°†å¯¹è±¡è½¬æ¢ä¸ºHTTPè¯·æ±‚çš„Jsonæˆ–å…¶å®ƒæ ¼å¼
 	 * 
-	 * ¹¦ÄÜÓëÉÏÃæµÄbyteArrayHttpMessageConverter·½·¨Ò»Ñù
+	 * åŠŸèƒ½ä¸ä¸Šé¢çš„byteArrayHttpMessageConverteræ–¹æ³•ä¸€æ ·
 	 */
 	@Override
 	public void configureMessageConverters(
@@ -91,8 +91,8 @@ public class WebConfiguration extends WebMvcConfigurerAdapter
 	}
 
 	/*
-	 * µ÷ÓÃconfigureMessageConverters»òbyteArrayHttpMessageConverter Õâ¸ö·½·¨ºó²Åµ÷ÓÃ´Ë·½·¨
-	 * converters.clear()Çå¿ÕËùÓĞµÄ×ª»»Æ÷
+	 * è°ƒç”¨configureMessageConvertersæˆ–byteArrayHttpMessageConverter è¿™ä¸ªæ–¹æ³•åæ‰è°ƒç”¨æ­¤æ–¹æ³•
+	 * converters.clear()æ¸…ç©ºæ‰€æœ‰çš„è½¬æ¢å™¨
 	 */
 	@Override
 	public void extendMessageConverters(List<HttpMessageConverter<?>> converters)
@@ -102,7 +102,7 @@ public class WebConfiguration extends WebMvcConfigurerAdapter
 	}
 
 	/*
-	 * ½«BookFormatter×¢²áµ½FormmatterÖĞ£¬Êµ¼ÊÀàĞÍ×ª»»
+	 * å°†BookFormatteræ³¨å†Œåˆ°Formmatterä¸­ï¼Œå®é™…ç±»å‹è½¬æ¢
 	 */
 	@Override
 	public void addFormatters(FormatterRegistry registry)
@@ -111,8 +111,8 @@ public class WebConfiguration extends WebMvcConfigurerAdapter
 	}
 
 	/*
-	 * URLµØÖ·´¦Àí£¬setUseSuffixPatternMatch(false)²»·Ö¸ô·ÃÎÊµØÖ·µÄ¡®.*¡¯,trueÔòÏà·´
-	 * setUseTrailingSlashMatch(true)·Ö¸ô¡®/¡®£¬falseÔòÏà·´
+	 *  URLåœ°å€å¤„ç†ï¼ŒsetUseSuffixPatternMatch(false)ä¸åˆ†éš”è®¿é—®åœ°å€çš„â€˜.*â€™,trueåˆ™ç›¸å
+	 * setUseTrailingSlashMatch(true)åˆ†éš”â€˜/â€˜ï¼Œfalseåˆ™ç›¸å
 	 */
 	@Override
 	public void configurePathMatch(PathMatchConfigurer configurer)
@@ -122,7 +122,7 @@ public class WebConfiguration extends WebMvcConfigurerAdapter
 	}
 
 	/*
-	 * Ó³Éä¾²Ì¬ÎÄ¼şµ½HTTPÇëÇó¡£ ÀıÈç½«ÄÚ²¿µÄapplicaton.propertiesÎÄ¼şĞÅÏ¢·µ»Ø¸øHTTPÇëÇó
+	 * æ˜ å°„é™æ€æ–‡ä»¶åˆ°HTTPè¯·æ±‚ã€‚ ä¾‹å¦‚å°†å†…éƒ¨çš„applicaton.propertiesæ–‡ä»¶ä¿¡æ¯è¿”å›ç»™HTTPè¯·æ±‚
 	 */
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry)
@@ -132,7 +132,7 @@ public class WebConfiguration extends WebMvcConfigurerAdapter
 	}
 
 	/*
-	 * Ê¹ÓÃEmbeddedServletContainerCustomizerÀ´ÉèÖÃsessionµÄ¹ıÆÚÊ±¼ä Spring Boot2.0ÒÔÉÏ°æ±¾²»´æÔÚ
+	 *ä½¿ç”¨EmbeddedServletContainerCustomizeræ¥è®¾ç½®sessionçš„è¿‡æœŸæ—¶é—´ Spring Boot2.0ä»¥ä¸Šç‰ˆæœ¬ä¸å­˜åœ¨
 	 * EmbeddedServletContainerCustomizer
 	 */
 	/*
@@ -145,7 +145,7 @@ public class WebConfiguration extends WebMvcConfigurerAdapter
 	 */
 
 	/*
-	 * Ê¹ÓÃWebServerFactoryCustomizerÀ´ÉèÖÃsessionµÄ¹ıÆÚÊ±¼ä--->ÓĞµãÎÊÌâ£¬ĞèÒªµ÷Õû
+	 * ä½¿ç”¨WebServerFactoryCustomizeræ¥è®¾ç½®sessionçš„è¿‡æœŸæ—¶é—´--->æœ‰ç‚¹é—®é¢˜ï¼Œéœ€è¦è°ƒæ•´
 	 */
 	@Bean
 	public WebServerFactoryCustomizer<ConfigurableWebServerFactory> webServerFactoryCustomizer()
@@ -180,7 +180,7 @@ public class WebConfiguration extends WebMvcConfigurerAdapter
 	}
 
 	/*
-	 * HTTPSÁ¬½ÓÊ±ĞèÒªµÄĞÅÏ¢´¦Àí
+	 *  HTTPSè¿æ¥æ—¶éœ€è¦çš„ä¿¡æ¯å¤„ç†
 	 */
 	@ConfigurationProperties(prefix = "custom.tomcat.https")
 	public static class TomcatSslConnectorProperties
@@ -274,7 +274,7 @@ public class WebConfiguration extends WebMvcConfigurerAdapter
 	}
 
 	/*
-	 * Spring Boot1.x HTTPS´¦ÀíĞ´·¨
+	 * Spring Boot1.x HTTPSå¤„ç†å†™æ³•
 	 */
 	/*@Bean
 	public EmbeddedServletContainerFactory servletContainer(
@@ -285,7 +285,7 @@ public class WebConfiguration extends WebMvcConfigurerAdapter
 		return tomcat;
 	}*/
 
-	// springboot2 Ğ´·¨ HTTPS´¦ÀíĞ´·¨
+	// springboot2 å†™æ³• HTTPSå¤„ç†å†™æ³•
 	@Bean
 	public TomcatServletWebServerFactory servletContainer(TomcatSslConnectorProperties properties)
 	{
@@ -295,7 +295,7 @@ public class WebConfiguration extends WebMvcConfigurerAdapter
 	}
 
 	/*
-	 * HTTPS´¦ÀíĞ´·¨
+	 * HTTPSå¤„ç†å†™æ³•
 	 */
 	private Connector createSslConnector(TomcatSslConnectorProperties properties)
 	{

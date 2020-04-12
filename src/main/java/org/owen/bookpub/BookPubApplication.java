@@ -3,19 +3,25 @@ package org.owen.bookpub;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
- * Æô¶¯Àà
+ * å¯åŠ¨ç±»
  * 
  * @author OwenWilliam
  * @date 2020/3/31
  */
-@SpringBootApplication
+@Configuration
+@EnableAutoConfiguration
+@ComponentScan(excludeFilters=@ComponentScan.Filter(UsedForTesting.class))//å¿½ç•¥ä»»ä½•å¸¦æœ‰@UsedForTestingçš„ç±»
+//@SpringBootApplication  //è¯¥æ³¨è§£ç”±ä¸Šé¢çš„ä¸‰ä¸ªå–ä»£
 @EnableScheduling
-//@EnableDbCounting //×Ô¶¨ÒåµÄstarterµÄÊ¹ÓÃ£¬¸Ã±êÇ©×¢ÊÍ ÊÇÔÚdb-count-starterÖĞÒıÓÃ
+//@EnableDbCounting //è‡ªå®šä¹‰çš„starterçš„ä½¿ç”¨ï¼Œè¯¥æ ‡ç­¾æ³¨é‡Š æ˜¯åœ¨db-count-starterä¸­å¼•ç”¨
 public class BookPubApplication
 {
 
@@ -34,7 +40,7 @@ public class BookPubApplication
 		return new StartupRunner();
 	}
 
-	//¸Ã·½·¨ÊÇ×Ô¶¨ÒåstarterµÄÒıÓÃ£¬²»¹ıÊÇµ÷ÓÃspring.factoriesµÄÅäÖÃÎÄ¼ş
+	//è¯¥æ–¹æ³•æ˜¯è‡ªå®šä¹‰starterçš„å¼•ç”¨ï¼Œä¸è¿‡æ˜¯è°ƒç”¨spring.factoriesçš„é…ç½®æ–‡ä»¶
 	/*@Bean
 	public DbCountRunner dbCountRunner(Collection<CrudRepository>
 	repositories) {
@@ -46,3 +52,12 @@ public class BookPubApplication
 	};
 	}*/
 }
+
+/**
+ * å®šä¹‰è¿™ä¸ªæ¥å£ä¸ºäº†ç»™å¤–éƒ¨çš„TestMockBeansConfigç±»å¼•ç”¨ï¼Œå¦‚@UsedForTesting
+ * è¿™æ ·çš„æ”¾ï¼ŒTestMockBeansConfigè¿™ä¸ªç±»å°±ä¼šè¢«å¿½ç•¥äº†ã€‚
+ * @author OwenWilliam
+ * @data 2020/04/11
+ *
+ */
+@interface UsedForTesting {}

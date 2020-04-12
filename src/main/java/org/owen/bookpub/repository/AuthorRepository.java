@@ -5,7 +5,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 /**
- * ¶ÔAuthor¶ÔÏó²Ù×÷£¬¼Ì³ĞPagingAndSortingRepositoryÊÇRESTfulµÄÓ¦ÓÃ¡£
+ *å¯¹Authorå¯¹è±¡æ“ä½œï¼Œç»§æ‰¿PagingAndSortingRepositoryæ˜¯RESTfulçš„åº”ç”¨ã€‚
  * 
  * @author OwenWilliam
  * @date 2020/04/02

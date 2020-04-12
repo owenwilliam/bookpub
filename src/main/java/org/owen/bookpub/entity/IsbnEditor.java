@@ -7,7 +7,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 
 /**
- * IsbnEditor负责加载自定义类型Isbn
+ * IsbnEditor璐熻矗鍔犺浇鑷畾涔夌被鍨婭sbn
  * @author OwenWilliam
  * @date 2020/04/02
  */
@@ -39,7 +39,7 @@ public class IsbnEditor extends PropertyEditorSupport
 	}
 
 	/*
-	 * 初始化自定义类型Isbn
+	 * 鍒濆鍖栬嚜瀹氫箟绫诲瀷Isbn
 	 */
 	@InitBinder
 	public void initBinder(WebDataBinder binder)

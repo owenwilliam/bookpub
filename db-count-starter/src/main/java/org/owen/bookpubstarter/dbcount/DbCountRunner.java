@@ -8,7 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.data.repository.CrudRepository;
 
 /**
- * ×Ô¶¨ÒåµÄstarterµÄÓ¦ÓÃ
+ * è‡ªå®šä¹‰çš„starterçš„åº”ç”¨
  * @author OwenWilliam
  * @date 2020/04/05
  *

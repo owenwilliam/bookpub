@@ -1,7 +1,7 @@
 package org.owen.bookpub.entity;
 
 /**
- * 自定义类型，名为Isbn
+ * 鑷畾涔夌被鍨嬶紝鍚嶄负Isbn
  * @author OwenWilliam
  * @date 2020/04/02
  *
