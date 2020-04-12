@@ -31,7 +31,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.WebApplicationContext;
 
 /**
- * 测试类
+ * 测试类：使用MockMvc测试
  * 
  * @author OwenWilliam
  *

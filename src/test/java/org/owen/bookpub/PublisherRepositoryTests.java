@@ -14,6 +14,7 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * 使用Mockito来测试
+ * 主要是@Before，先判断条件是否符合测试@After测试后没空记录
  * @author OwenWilliam
  * @date 2020/04/11
  *
