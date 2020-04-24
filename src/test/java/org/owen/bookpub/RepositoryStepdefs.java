@@ -24,13 +24,18 @@ import cucumber.api.java.en.When;
  * 
  * 注：SpringApplicationContextLoader.class类找不到，可能是Spring Booot1.x的版本中会有，
  *   Spring Boot2.x使用什么方法，暂时没有找到，不过了解一下测试的过程就行。
+ *   
+ *   v5.xx :@ContextConfiguration(classes = {BookPubApplication.class,
+		TestMockBeansConfig.class }, loader = SpringApplicationContextLoader.class)
+	 v6.xx改变：@ContextConfiguration(classes = {BookPubApplication.class,
+		TestMockBeansConfig.class })
  * @author OwenWilliam
  * @date 2020/04/12
  *
  */
 @WebAppConfiguration
 @ContextConfiguration(classes = {BookPubApplication.class,
-		TestMockBeansConfig.class }, loader = SpringApplicationContextLoader.class)
+		TestMockBeansConfig.class })
 public class RepositoryStepdefs
 {
 	@Autowired

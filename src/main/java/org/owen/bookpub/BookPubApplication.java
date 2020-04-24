@@ -2,12 +2,15 @@ package org.owen.bookpub;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
@@ -18,15 +21,16 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  */
 @Configuration
 @EnableAutoConfiguration
-@ComponentScan(excludeFilters=@ComponentScan.Filter(UsedForTesting.class))//忽略任何带有@UsedForTesting的类
-//@SpringBootApplication  //该注解由上面的三个取代
+@ComponentScan(excludeFilters = @ComponentScan.Filter(UsedForTesting.class))
+// 忽略任何带有@UsedForTesting的类
+// @SpringBootApplication //该注解由上面的三个取代
 @EnableScheduling
-//@EnableDbCounting //自定义的starter的使用，该标签注释 是在db-count-starter中引用
+// @EnableDbCounting //自定义的starter的使用，该标签注释 是在db-count-starter中引用
 public class BookPubApplication
 {
 
 	protected final Log logger = LogFactory.getLog(getClass());
-	
+
 	public static void main(String[] args)
 	{
 
@@ -34,30 +38,42 @@ public class BookPubApplication
 	}
 
 	@Bean
+	@Profile("logger")
+	// 以./build/libs/bookpub-0.0.1-SNAPSHOT-exec.jar
+	// --spring.profiles.active=logger
+	// 这种形式启动才会打印日志
 	public StartupRunner schedulerRunner()
 	{
 
 		return new StartupRunner();
 	}
 
-	//该方法是自定义starter的引用，不过是调用spring.factories的配置文件
-	/*@Bean
-	public DbCountRunner dbCountRunner(Collection<CrudRepository>
-	repositories) {
-	return new DbCountRunner(repositories) {
-	@Override
-	public void run(Strin... args) throws Exception {
-	logger.info("Manually Declared DbCountRunner");
+	// 该方法是自定义starter的引用，不过是调用spring.factories的配置文件
+	/*
+	 * @Bean public DbCountRunner dbCountRunner(Collection<CrudRepository>
+	 * repositories) { return new DbCountRunner(repositories) {
+	 * 
+	 * @Override public void run(Strin... args) throws Exception {
+	 * logger.info("Manually Declared DbCountRunner"); } }; }
+	 */
+
+	@Bean
+	public CommandLineRunner configValuePrinter(
+			@Value("${my.config.value:}") String configValue)
+	{
+		return args -> LogFactory.getLog(getClass()).info(
+				"Value of my.config.value property is: " + configValue);
 	}
-	};
-	}*/
 }
 
 /**
  * 定义这个接口为了给外部的TestMockBeansConfig类引用，如@UsedForTesting
  * 这样的放，TestMockBeansConfig这个类就会被忽略了。
+ * 
  * @author OwenWilliam
  * @data 2020/04/11
  *
  */
-@interface UsedForTesting {}
+@interface UsedForTesting
+{
+}

@@ -39,7 +39,7 @@ public class StartupRunner implements CommandLineRunner
 	public void run(String... args) throws Exception
 	{
         //通过文件调用下面相似代码
-		/*Author author = new Author("Alex", "Antonov");
+		Author author = new Author("Alex", "Antonov");
 		author = authorRepository.save(author);
 		Publisher publisher = new Publisher("Packt");
 		publisher = publisherRepository.save(publisher);
@@ -50,11 +50,12 @@ public class StartupRunner implements CommandLineRunner
 		List<Reviewer> reviewers = new ArrayList<Reviewer>();
 		reviewers.add(reviewer);
 		book.setReviewers(reviewers);
-		bookRepository.save(book);*/
+		bookRepository.save(book);
 
 	}
 
-	//@Scheduled(initialDelay = 1000, fixedRate = 10000)
+	//信息从commons-config.xml中获取
+	@Scheduled(initialDelayString = "${book.counter.delay}",fixedRateString = "${book.counter.rate}")
 	public void run()
 	{
 
