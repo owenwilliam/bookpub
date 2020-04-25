@@ -9,5 +9,6 @@ dependencies {
 	compile("org.springframework.boot:spring-boot:1.2.3.RELEASE")
 	compile("org.springframework.data:spring-data-commons:1.9.2.RELEASE")
 	compile("org.springframework.boot:spring-bootautoconfigure:1.2.3.RELEASE")
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	
 }

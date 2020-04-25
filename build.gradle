@@ -40,6 +40,15 @@ dependencies {
 	implementation 'commons-codec:commons-codec:1.6'
 	implementation 'commons-jxpath:commons-jxpath:1.3'
 	implementation 'commons-collections:commons-collections:3.2.1'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'io.dropwizard.metrics:metrics-core:3.2.6'
+	implementation 'io.dropwizard.metrics:metrics-healthchecks:3.2.6'
+	implementation 'org.jolokia:jolokia-core:+'
+
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-remoteshell'
+	implementation 'org.crashub:crash.connectors.telnet:1.3.1'
+	implementation 'de.codecentric:spring-boot-admin-starter-client:1.2.1'
 	//implementation 'org.springframework.boot:spring-boot-starter-jetty' //使用jetty服务容器
 	//implementation 'org.springframework.boot:spring-boot-starter-test'
 	//	compile project(':db-count-starter') 
@@ -85,3 +94,11 @@ springBoot {
 	applicationDefaultJvmArgs.join(' ')]
 }*/
 
+/*bootRun {
+	addResources = false
+} */
+processResources {
+	filesMatching("**/application.properties") {
+		expand(project.properties)
+	}
+}

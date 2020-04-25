@@ -13,6 +13,9 @@ import org.springframework.data.repository.CrudRepository;
  * @date 2020/04/06
  *
  */
+@Autowired
+private HealthAggregator healthAggregator;
+
 @Configuration
 public class DbCountAutoConfiguration
 {
@@ -23,5 +26,17 @@ public class DbCountAutoConfiguration
 		return new DbCountRunner(repositories);
 	}
 	
+	@Bean
+	public HealthIndicator dbCountHealthIndicator(Collection<CrudRepository> repositories) 
+	{
+		CompositeHealthIndicator compositeHealthIndicator = new
+		CompositeHealthIndicator(healthAggregator);
+		for (CrudRepository repository : repositories) 
+		{
+			String name = DbCountRunner.getRepositoryName(repository.getClass());
+			compositeHealthIndicator.addHealthIndicator(name, new DbCountHealthIndicator(repository));
+		}
+		return compositeHealthIndicator;
+	}
 	
 }
