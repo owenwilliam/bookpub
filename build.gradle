@@ -6,9 +6,14 @@
  * User Manual available at https://docs.gradle.org/6.3/userguide/java_library_plugin.html
  */
 
+ //apply plugin: 'docker'
+ //apply plugin: 'application'
+
 plugins {
-    // Apply the java-library plugin to add support for Java Library
+    // Apply the java-library plugin to add support for Java Library 1.2.5 apply
     id 'java'
+    id 'groovy'
+    id 'application'
     id 'org.springframework.boot' version '2.2.6.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 }
@@ -18,28 +23,82 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 repositories {
-    // Use jcenter for resolving dependencies.
-    // You can declare any Maven/Ivy/file repository here.
-   // jcenter()
+
    mavenCentral()
 }
-
+/* 不用tomcat
+configurations {
+ compile.exclude module: "spring-boot-starter-tomcat"
+}
+*/
 dependencies {
-    // This dependency is exported to consumers, that is to say found on their compile classpath.
-    //api 'org.apache.commons:commons-math3:3.6.1'
-
-    // This dependency is used internally, and not exposed to consumers on their own compile classpath.
-    //implementation 'com.google.guava:guava:28.2-jre'
-
-    // Use JUnit test framework
-    //testImplementation 'junit:junit:4.12'
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	runtimeOnly 'com.h2database:h2'
-	testImplementation('org.springframework.boot:spring-boot-starter-test') {
-		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-	}
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+	implementation 'commons-configuration:commons-configuration:1.6'
+	implementation 'commons-codec:commons-codec:1.6'
+	implementation 'commons-jxpath:commons-jxpath:1.3'
+	implementation 'commons-collections:commons-collections:3.2.1'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'io.dropwizard.metrics:metrics-core:3.2.6'
+	implementation 'io.dropwizard.metrics:metrics-healthchecks:3.2.6'
+	implementation 'org.jolokia:jolokia-core:+'
+
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-remoteshell'
+	implementation 'org.crashub:crash.connectors.telnet:1.3.1'
+	implementation 'de.codecentric:spring-boot-admin-starter-client:1.2.1'
+	//implementation 'org.springframework.boot:spring-boot-starter-jetty' //使用jetty服务容器
+	//implementation 'org.springframework.boot:spring-boot-starter-test'
+	//	compile project(':db-count-starter') 
+	//implementation project ('db-count-starter')
+	runtime 'com.h2database:h2'
+	//testRuntime("com.jayway.jsonpath:json-path")
+	testRuntime 'com.jayway.jsonpath:json-path'
+	testCompile("info.cukes:cucumber-spring:1.2.2")
+    testCompile("info.cukes:cucumber-java8:1.2.2")
+    testCompile("info.cukes:cucumber-junit:1.2.2")
+	testCompile("org.springframework.boot:spring-boot-starter-test") 
+	testCompile('org.spockframework:spock-core:1.0-groovy-2.4')
+	testCompile('org.spockframework:spock-spring:1.0-groovy-2.4')
 }
+
+//buildscript {
+//	dependencies {
+//		classpath("org.springframework.boot:spring-boot-gradleplugin:${springBootVersion}")
+//		classpath("se.transmode.gradle:gradle-docker:1.2")
+//	}
+//}
+
+//distDocker {
+//	exposePort 8080
+//	exposePort 8443
+//	addFile
+//	file("${System.properties['user.home']}/.keystore"),
+//	"/root/"
+//}
+
 test {
 	useJUnitPlatform()
+}
+applicationDefaultJvmArgs = [
+	"-Xms128m",
+	"-Xmx256m"
+] 
+/*
+springBoot {
+	classifier = 'exec'
+	embeddedLaunchScript = file('launch.script')
+	embeddedLaunchScriptProperties = ['jvm_options' :
+	applicationDefaultJvmArgs.join(' ')]
+}*/
+
+/*bootRun {
+	addResources = false
+} */
+processResources {
+	filesMatching("**/application.properties") {
+		expand(project.properties)
+	}
 }
