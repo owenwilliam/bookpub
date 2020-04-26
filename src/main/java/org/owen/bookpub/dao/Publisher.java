@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 /**
- * Publisher¶ÔÏó
+ * Publisherå¯¹è±¡
  * 
  * @author OwenWilliam
  * @date 2020/3/31

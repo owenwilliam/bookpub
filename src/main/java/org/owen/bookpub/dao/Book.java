@@ -9,7 +9,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 /**
- * Book¶ÔÏó
+ * Bookå¯¹è±¡
  * 
  * @author OwenWilliam
  * @date 2020/3/31

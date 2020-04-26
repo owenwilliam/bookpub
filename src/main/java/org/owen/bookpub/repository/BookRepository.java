@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- * ¶ÔÊı¾İ¶ÔÏóµÄ²Ù×÷£¬CrudRepositoryÒÑ¾­µÄ·â×°ÁËCRUDµÈ²Ù×÷
+ * å¯¹æ•°æ®å¯¹è±¡çš„æ“ä½œï¼ŒCrudRepositoryå·²ç»çš„å°è£…äº†CRUDç­‰æ“ä½œ
  * 
  * @author OwenWilliam
  * @date 2020/3/31

@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
- * Reviewer¶ÔÏó
+ * Reviewerå¯¹è±¡
  * 
  * @author OwenWilliam
  * @date 2020/3/31
